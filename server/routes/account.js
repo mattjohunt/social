@@ -8,18 +8,16 @@ const Account = require("../models/Account");
 // @access  Public
 router.get("/all", (req, res) => {
   const errors = {};
-//  Account.find()
-//    .then(accounts => {
-//      if (!accounts) {
-//        errors.noAccounts = "There are no Accounts";
-//        res.status(404).json(errors);
-//      }
+ Account.find()
+   .then(accounts => {
+     if (!accounts) {
+       errors.noAccounts = "There are no Accounts";
+       res.status(404).json(errors);
+     }
 
-//      res.json(accounts);
-//    })
+     res.json(accounts);
+   })
 //    .catch(err => res.status(404).json({ noAccounts: "There are no Accounts" }));
-
-	res.append("This");
 
 });
 // @route   POST Account/createAccount

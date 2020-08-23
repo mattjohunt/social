@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 const db = require("./config/keys").mongoURI;
 
-mongoose
+  mongoose
   .connect(db)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
@@ -20,4 +20,4 @@ app.use("/account", account);
 
 const port = process.env.PORT || 5001;
 
-app.listen(port, () => console.log(`server running on port ${port}`));
+app.listen(port, () => console.log(`server running on port ${port} ${db}`));
