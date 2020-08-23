@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const AccountSchema = new Schema({
 
+  accountNumber: {
+    type: Number,
+    required: true
+  },
   firstName: {
     type: String,
     required: true
@@ -12,14 +16,10 @@ const AccountSchema = new Schema({
     type: String,
     required: true
   },
-  accountnumber: {
-    type: String,
-    required: true
-  },
-  prize: {
+  email: {
     type: String,
     required: true
   }
-});
+}, {collection:'account'});
 
-module.exports = Account = mongoose.model("accounts", AccountSchema);
+module.exports = Account = mongoose.model("account", AccountSchema);

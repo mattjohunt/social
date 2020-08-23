@@ -3,6 +3,8 @@ import {Button
 } from 'reactstrap';
 import axios from 'axios';
 
+import { BACKEND_URL } from '../api-config';
+
 class Example extends Component {
 constructor(props){
   super(props);
@@ -10,7 +12,7 @@ constructor(props){
   }
 
 this.doSomething = () => {
-axios.get("https://pokeapi.co/api/v2/pokemon/ditto").then(response => {
+axios.get(`http://${BACKEND_URL}/server/account/all`).then(response => {
 
   console.log(response.data);
   this.setState({

@@ -7,14 +7,15 @@ const Account = require("../models/Account");
 // @desc    Get all accounts
 // @access  Public
 router.get("/all", (req, res) => {
-  const errors = {};
+
+const errors = {};
+
  Account.find()
    .then(accounts => {
      if (!accounts) {
        errors.noAccounts = "There are no Accounts";
        res.status(404).json(errors);
      }
-
      res.json(accounts);
    })
 //    .catch(err => res.status(404).json({ noAccounts: "There are no Accounts" }));
