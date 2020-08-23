@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import GridCard from './components/GridCard';
 import Example from './components/Example';
+import Tabs from './components/Tabs'
 
 
 function App() {
   return (
     <div className="App">
       <Example />
-      <GridCard />      
+      <Tabs />  
     </div>
   );
 }
