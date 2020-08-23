@@ -31,8 +31,8 @@ console.log(req.body);
     const newAccount = new Account({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      accountnumber: req.body.accountnumber,
-      prize: req.body.prize
+      email: req.body.email,
+      content: req.body.content
     });
 
     newAccount.save().then(Account => res.json(Account))
