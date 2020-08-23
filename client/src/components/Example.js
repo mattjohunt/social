@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Button
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 import axios from 'axios';
 
 import { BACKEND_URL } from '../api-config';

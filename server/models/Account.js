@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 const AccountSchema = new Schema({
 
-  accountNumber: {
-    type: Number,
-    required: true
-  },
   firstName: {
     type: String,
     required: true
@@ -19,7 +15,11 @@ const AccountSchema = new Schema({
   email: {
     type: String,
     required: true
-  }
+  },
+  content: {
+    type: String,
+    required: true
+  },
 }, {collection:'account'});
 
 module.exports = Account = mongoose.model("account", AccountSchema);
