@@ -1,0 +1,42 @@
+---
+version: '3.7'
+services:
+    nginx:
+      container_name: nginx
+      image: nginx:latest
+      volumes:
+      - type: bind
+        source: ./nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+      ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      depends_on:
+        - client
+        - server
+    server:
+      build:
+        context: ./server
+        dockerfile: Dockerfile    
+    client:
+      build:
+        context: ./client
+        dockerfile: Dockerfile
+      environment:
+      - REACT_APP_SERVICE_HOST=${REACT_APP_SERVICE_HOST}
+    mongo:
+      image: mongo
+    mongo-seed:
+      image: fvilers/mongo-seed:1.0.0
+      environment:
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      volumes:
+      - ./data:/data
+      command:
+      - "mongoimport --host mongo --port 27017 --db test --mode upsert --type json --file /data/account.json --jsonArray"
+
+  
+...
+
