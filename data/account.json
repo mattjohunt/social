@@ -1,20 +1,20 @@
 [
   {
-    "accountNumber":1,
     "firstName": "Joe",
-	"lastName":"Smith",
-    "email": "jsmith@gmail.com"
+    "lastName":"Smith",
+    "email": "jsmith@gmail.com",
+    "content":"This is the content of Joe's Post"
   },
   {
-    "accountNumber":2,
     "firstName": "Jen",
-	"lastName":"Ford",
-    "email": "jford@gmail.com"
+    "lastName":"Ford",
+    "email": "jford@gmail.com",
+    "content":"This is the content of Jen's Post"
   },
   {
-    "accountNumber":3,
     "firstName": "John",
-	"lastName":"Brown",
-    "email": "jbrown@gmail.com"
+    "lastName":"Brown",
+    "email": "jbrown@gmail.com",
+    "content":"This is the content of John's Post"
   }
 ]
