@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import axios from 'axios';
-
-import { BACKEND_URL } from '../api-config';
 
 class ResultTable extends Component {
     constructor(props){
@@ -14,20 +11,6 @@ class ResultTable extends Component {
   }
 
     render(){
-
-
-      axios.get(`http://${BACKEND_URL}/server/account/all`).then(response => {
-
-        this.items = response.data.map((item) => 
-        <tr>
-          <td>{item.firstName}</td>
-          <td>{item.lastName}</td>
-          <td>{item.email}</td>
-          <td>{item.content}</td>
-        </tr>)     
-
-      });
-    
 
   return (
 <Table bordered>
@@ -41,7 +24,7 @@ class ResultTable extends Component {
       </thead>
       <tbody>
       
-          {this.items}
+          {this.props.listOfItems}
       
       </tbody>
     </Table>

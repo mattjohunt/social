@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
+
+import ResultTable from './ResultTable'
 
 import { BACKEND_URL } from '../api-config';
 
@@ -8,6 +10,7 @@ class FormComp extends Component {
     constructor(props){
         super(props);
         this.state = {
+          listOfItems: null,
 
         }
 
@@ -20,16 +23,32 @@ class FormComp extends Component {
                 content:document.getElementById('content').value
             };
 
-            console.log(account);
-
             axios.post(`http://${BACKEND_URL}/server/account/createAccount`,account).then(response => {
 
             })
+
+            axios.get(`http://${BACKEND_URL}/server/account/all`).then(response => {
+
+              let items = response.data.map((item) => 
+              <tr>
+                <td>{item.firstName}</td>
+                <td>{item.lastName}</td>
+                <td>{item.email}</td>
+                <td>{item.content}</td>
+              </tr>)
+              
+              this.setState({
+                listOfItems: items,
+              });
+      
+            });
+            
         }
     }
 
     render(){
   return (
+    <div>
     <Form>
       <FormGroup>
         <Label for="firstName">First Name</Label>
@@ -49,6 +68,8 @@ class FormComp extends Component {
       </FormGroup>
       <Button onClick={this.submitFormData}>Submit</Button>
     </Form>
+    <ResultTable listOfItems={this.state.listOfItems}/>
+    </div>
   );
 }
 }

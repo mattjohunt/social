@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import Example from './components/Example';
-import Tabs from './components/Tabs'
-
+import FormComp from './components/FormComp'
 
 function App() {
   return (
     <div className="App">
-      <Example />
-      <Tabs />  
+      <FormComp />  
     </div>
   );
 }
